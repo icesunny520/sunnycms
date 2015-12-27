@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<title>Jspxcms管理平台 - Powered by Jspxcms</title>
+<title>管理平台 - Powered by Sunny</title>
 <jsp:include page="/WEB-INF/views/commons/head.jsp"></jsp:include>
 <style type="text/css">
 .welcome{padding:10px 0 0 15px;color:#333;}
@@ -19,14 +19,14 @@ a.latest-version{color:red;}
 </style>
 </head>
 <body class="c-body">
-<p class="welcome">欢迎使用专业的JAVA内容管理系统 -- Jspxcms内容管理系统。</p>
+<p class="welcome"></p>
 <!-- 
 <h1 class="bar">安全提示</h1>
  -->
 <h1 class="bar">您的资料</h1>
 <p class="line">
 	<label class="label">当前版本</label>
-	<span class="content">Jspxcms v${site.version} <a href="http://www.jspxcms.com" target="_blank" class="latest-version">查看最新版</a></span>
+	<span class="content">v${site.version}</span>
 	<div class="clear"></div>
 </p>
 <p class="line">

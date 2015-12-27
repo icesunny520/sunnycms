@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta name="robots" content="none"/>
-<title>Jspxcms管理平台登录 - Powered by Jspxcms</title>
+<title>管理平台登录 - Powered by Sunny</title>
 <script type="text/javascript">
 //if(top!=this){top.location=this.location;}
 </script>
@@ -39,7 +39,8 @@ $(function() {
 .center{margin:0 auto;width:800px;}
 .clear{clear:both;}
 .div1{margin-top:150px;padding-top:5px;background:url('${ctx}/static/back/images/login_bg.png') no-repeat 430px top;}
-.desc{float:left;height:180px;width:430px;padding-top:40px;text-align:center;color:#858585;font-size:28px;font-weight:bold;background:url('${ctx}/static/back/images/admin_logo.png') no-repeat center 8px;}
+/*.desc{float:left;height:180px;width:430px;padding-top:40px;text-align:center;color:#858585;font-size:28px;font-weight:bold;background:url('${ctx}/static/back/images/admin_logo.png') no-repeat center 8px;}*/
+.desc{float:left;height:180px;width:430px;padding-top:40px;text-align:center;color:#858585;font-size:28px;font-weight:bold}
 .input_form{float:right;height:180px;width:370px;}
 .input_p{padding:10px 0;}
 .input_p_submit{text-align:left;padding:5px 0 5px 80px;}
@@ -92,6 +93,6 @@ if(username!=null) {
 	</form>
 	<div class="clear"></div>
 </div>
-<div class="center div2">&copy; 2010-2015 <a href="http://www.jspxcms.com/" target="_blank">Jspxcms</a> All Rights Reserved</div>
+<div class="center div2">&copy; 2010-2015 Sunny All Rights Reserved</div>
 </body>
 </html>
