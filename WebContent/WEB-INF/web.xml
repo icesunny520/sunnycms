@@ -187,6 +187,10 @@
 		<servlet-name>captchaServlet</servlet-name>
 		<servlet-class>com.jspxcms.common.security.CaptchaServlet</servlet-class>
 	</servlet>
+	<servlet>
+	    <servlet-name>busGeoServlet</servlet-name>
+	    <servlet-class>com.jspxcms.common.web.BusGeoServlet</servlet-class>
+	</servlet>
 	
   <servlet-mapping>
 		<servlet-name>background</servlet-name>
@@ -203,6 +207,10 @@
 	<servlet-mapping>
 		<servlet-name>captchaServlet</servlet-name>
 		<url-pattern>/captcha.servlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>busGeoServlet</servlet-name>
+		<url-pattern>/geo.servlet</url-pattern>
 	</servlet-mapping>
 	
 	<session-config>
