@@ -27,9 +27,11 @@
 	src="/static/commons/scripts/jquery-2.2.1.min.js"></script>
 
 <script>
-	function showBus(val) {
+	var t;
+	var line;
+	function timedShow(){ 
 		htmlobj = $.ajax({
-			url : "/geo.servlet?type=geo&line="+val,
+			url : "/geo.servlet?type=geo&line="+line,
 			context : document.body,
 			success : function(data) {
 				map.clearMap();  // 清除地图覆盖物
@@ -37,6 +39,21 @@
 			}
 		});
 		/* $("#myDiv").html(htmlobj.responseText); */
+		t=setTimeout("timedShow()",10000);
+	} 
+	
+	function showBus(val) {
+		if(t){
+			clearTimeout(t); 
+		}
+		if(map){
+			map.clearMap();
+		}
+		if(val!="" && typeof(val)!="undefined"){
+			line = val;
+			timedShow();
+		}
+		
 	}
 	
 	function drawPoint(data){
@@ -71,7 +88,8 @@
 			%>
 		</select>
 	</div>
-	<div id="container" style="top: 20px; width: 712px; height: 712px"></div>
+	<!-- <div id="container" style="top: 20px; width: 712px; height: 712px"></div> -->
+	<div id="container" style="top: 20px;"></div>
 	<script type="text/javascript">
 		//初始化地图对象，加载地图
 		var map = new AMap.Map("container", {
