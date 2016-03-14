@@ -39,7 +39,7 @@
 			}
 		});
 		/* $("#myDiv").html(htmlobj.responseText); */
-		t=setTimeout("timedShow()",10000);
+		t=setTimeout("timedShow()",60000);
 	} 
 	
 	function showBus(val) {
