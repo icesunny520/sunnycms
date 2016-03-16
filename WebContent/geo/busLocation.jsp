@@ -60,11 +60,12 @@
 		for(var i=0;i<data.length;i++){
 			var marker = new AMap.Marker({
 	            map: map,
-	            icon: "/static/commons/images/file/car_03.png",
+	            icon: "/static/commons/images/file/car_02.png",
 	            position: [data[i].longitude, data[i].latitude],
 	            //offset: new AMap.Pixel(-12, -36)
 	            angle:data[i].direction-90,
-	            label:{content:data[i].busNum,offset: new AMap.Pixel(20, 30)}
+	            //label:{content:data[i].busNum,offset: new AMap.Pixel(20, 30)}
+	            title:data[i].busNum
 	        });
 		}
 	    map.setFitView();
