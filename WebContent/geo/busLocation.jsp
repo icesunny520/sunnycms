@@ -29,46 +29,47 @@
 <script>
 	var t;
 	var line;
-	function timedShow(){ 
+	function timedShow(begin) {
 		htmlobj = $.ajax({
-			url : "/geo.servlet?type=geo&line="+line,
+			url : "/geo.servlet?type=geo&line=" + line,
 			context : document.body,
 			success : function(data) {
-				map.clearMap();  // 清除地图覆盖物
-				drawPoint(data);				
+				map.clearMap(); // 清除地图覆盖物
+				drawPoint(data, begin);
 			}
 		});
 		/* $("#myDiv").html(htmlobj.responseText); */
-		t=setTimeout("timedShow()",60000);
-	} 
-	
+		t = setTimeout("timedShow()", 60000);
+	}
+
 	function showBus(val) {
-		if(t){
-			clearTimeout(t); 
+		if (t) {
+			clearTimeout(t);
 		}
-		if(map){
+		if (map) {
 			map.clearMap();
 		}
-		if(val!="" && typeof(val)!="undefined"){
+		if (val != "" && typeof (val) != "undefined") {
 			line = val;
-			timedShow();
+			timedShow(true);
 		}
-		
+
 	}
-	
-	function drawPoint(data){
-		for(var i=0;i<data.length;i++){
+
+	function drawPoint(data, begin) {
+		for (var i = 0; i < data.length; i++) {
 			var marker = new AMap.Marker({
-	            map: map,
-	            icon: "/static/commons/images/file/car_02.png",
-	            position: [data[i].longitude, data[i].latitude],
-	            //offset: new AMap.Pixel(-12, -36)
-	            angle:data[i].direction-90,
-	            //label:{content:data[i].busNum,offset: new AMap.Pixel(20, 30)}
-	            title:data[i].busNum
-	        });
+				map : map,
+				icon : "/static/commons/images/file/car_02.png",
+				position : [ data[i].longitude, data[i].latitude ],
+				//offset: new AMap.Pixel(-12, -36)
+				angle : data[i].direction - 90,
+				//label:{content:data[i].busNum,offset: new AMap.Pixel(20, 30)}
+				title : data[i].busNum
+			});
 		}
-	    map.setFitView();
+		if (begin)
+			map.setFitView();
 	}
 </script>
 </head>
@@ -79,13 +80,13 @@
 			name="lines" id="lines" onchange="showBus(this.value);">
 			<%
 				try{
-						ArrayList<String[]> lines = (ArrayList<String[]>)request.getAttribute("lines");
-						out.println("<option value=\"\">请选择线路</option>");
-						for(String[] s:lines){
-							out.println("<option value=\""+s[1]+"\">"+s[0]+"</option>");
-						}
-				}catch(Exception e){
-				}
+							ArrayList<String[]> lines = (ArrayList<String[]>)request.getAttribute("lines");
+							out.println("<option value=\"\">请选择线路</option>");
+							for(String[] s:lines){
+								out.println("<option value=\""+s[1]+"\">"+s[0]+"</option>");
+							}
+					}catch(Exception e){
+					}
 			%>
 		</select>
 	</div>
@@ -99,7 +100,6 @@
 			zoom : 13
 		//地图显示的缩放级别
 		});
-		
 	</script>
 </body>
 </html>
